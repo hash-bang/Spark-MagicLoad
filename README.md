@@ -25,7 +25,7 @@ Can be just:
 
 ... Magic loader will take care of figuring out what modules to load and attempt to bring them into the mix as needed.
 
-Even complex relationships like Models calling other models, libraries or helpers will be dealt with. You can make as many interconnected relationships as you wish without loading them in your controller.
+Even complex relationships like models calling other models, libraries or helpers will be dealt with. You can make as many interconnected relationships as you wish without loading them in your controller.
 
 
 Technical info
@@ -44,7 +44,7 @@ Magic_load works by (brace yourself) scanning your source code for mentions of e
 ... which is obviously a call to the User model. Magic_load recognises this and tries to load the User model for you whenever you use a controller that has something like the above code.
 
 
-Naturally this is exceptionally slow in server terms since the source code needs to be scanned each time the page is loaded. To work around this issue, Magic_load uses a caching system where it examines the last time a source code file was altered and re-generates its module list based on that. This means that Magic_load can change its behaviour for systems that are under active development but still stay relatively speedy on production systems.
+Naturally this is exceptionally slow in server terms since the source code needs to be scanned each time the page is loaded. To work around this issue, Magic_load uses a caching system where it examines the last time a source code file was altered and re-generates its module list based on that. This means Magic_load can change its module load-list for systems that are under active development but still stay speedy on production systems.
 
 This leads us naturally to...
 
@@ -66,7 +66,7 @@ Known issues
 	- Libraries are currently unsupported
 	- Helpers are currently unsupported
 * Caching does not yet work
-* Anything other than simple $this->[module] will not be detected as a module - frankly parsing the entire language is a pain
+* Anything other than simple $this->[module] will not be detected as a module - frankly parsing the entire language is a pain so Magic_load only detects very simple inter-module use-cases
 
 
 About the author

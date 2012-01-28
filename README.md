@@ -66,7 +66,6 @@ Known issues
 	- Libraries are currently unsupported
 	- Helpers are currently unsupported
 * Caching does not yet work
-* The last function in a controller will probably fail as it wont match the RegExp used to optimize the output
 * Anything other than simple $this->[module] will not be detected as a module - frankly parsing the entire language is a pain
 
 

@@ -52,17 +52,28 @@ This leads us naturally to...
 What Magic_load isn't
 ---------------------
 
-... A perminant solution to the problem. Please dont bitch at me about this not being workable in the long run. I _have_ solutions which allows CodeIgniter to automatically load modules on the fly, unfortunately all of them involve changing the original CodeIgniter code library source code.
+... A permanent solution to the problem. Please don't bitch at me about this not being workable in the long run. I _have_ solutions which allows CodeIgniter to automatically load modules on the fly, unfortunately all of them involve changing the original CodeIgniter code library source code.
 
 The intention of Magic_load is to provide a reasonably easy way of loading modules on the fly without breaking future upgrades of the CodeIgniter library.
 
-Hopefully the CodeIgniter guys (who are incredibly hansome by the way) will one day get around to including autoloading - and if they have any issues please email me since this is my #1 inclusion wish.
+Hopefully the CodeIgniter guys (who are incredibly handsome by the way) will one day get around to including autoloading - and if they have any issues please email me since this is my #1 inclusion wish.
+
+
+Known issues
+============
+* Recursion outside the original controller layer is unsupported, meaning:
+	- Models are currently unsupported
+	- Libraries are currently unsupported
+	- Helpers are currently unsupported
+* Caching does not yet work
+* The last function in a controller will probably fail as it wont match the RegExp used to optimize the output
+* Anything other than simple $this->[module] will not be detected as a module - frankly parsing the entire language is a pain
 
 
 About the author
 ================
 
-I do solemnly swear that the above is a kludge and by far not the optimal solution to the problem of (true) autoloading for CodeIgniter.
+I do solemnly swear that the above is a kludge and by _far_ not the optimal solution to the problem of (true) autoloading for CodeIgniter.
 
 If anyone has any suggestions on a less revolting method, I am all ears.
 
